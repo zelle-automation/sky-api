@@ -68,4 +68,4 @@ function scene(kind,pal,seed){
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice">${s}</svg>`;
 }
 
-module.exports={scene,PAL};
+export{scene,PAL};

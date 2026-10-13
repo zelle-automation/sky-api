@@ -2,15 +2,15 @@
   "name": "sky-holidays-api",
   "version": "1.0.0",
   "private": true,
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
-    "dev": "tsx watch --env-file-if-exists=.env server/index.ts",
-    "start": "tsx --env-file-if-exists=.env server/index.ts",
-    "typecheck": "tsc --noEmit",
-    "db:migrate": "tsx --env-file-if-exists=.env scripts/migrate.ts",
-    "db:seed": "tsx --env-file-if-exists=.env scripts/seed.ts",
-    "db:seed-admin": "tsx --env-file-if-exists=.env scripts/seed-admin.ts",
-    "db:seed-demo": "tsx --env-file-if-exists=.env scripts/seed-demo.ts",
+    "dev": "node --env-file-if-exists=.env --watch server/index.js",
+    "start": "node --env-file-if-exists=.env server/index.js",
+    "check": "node scripts/check.js",
+    "db:migrate": "node --env-file-if-exists=.env scripts/migrate.js",
+    "db:seed": "node --env-file-if-exists=.env scripts/seed.js",
+    "db:seed-admin": "node --env-file-if-exists=.env scripts/seed-admin.js",
+    "db:seed-demo": "node --env-file-if-exists=.env scripts/seed-demo.js",
     "db:setup": "npm run db:migrate && npm run db:seed && npm run db:seed-admin"
   },
   "dependencies": {
@@ -20,17 +20,10 @@
     "multer": "^2.4.0",
     "nodemailer": "^10.1.0",
     "pg": "^8.23.1",
-    "tsx": "^4.23.15",
     "world-countries": "^5.1.0",
     "zod": "^4.6.6"
   },
-  "devDependencies": {
-    "@types/cookie-parser": "^1.4.10",
-    "@types/express": "^5.0.6",
-    "@types/multer": "^2.3.0",
-    "@types/node": "^20",
-    "@types/nodemailer": "^8.0.2",
-    "@types/pg": "^8.23.1",
-    "typescript": "^5"
+  "engines": {
+    "node": ">=22.9"
   }
 }
